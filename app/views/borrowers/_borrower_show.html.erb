@@ -11,7 +11,9 @@
 
 <br>
 
+<%= will_paginate @loan_requests, renderer: BootstrapPagination::Rails %>
 <%= render "shared/borrower_thumbnail" %>
+<%= will_paginate @loan_requests, renderer: BootstrapPagination::Rails %>
 
 <!-- Create Loan Request Modal -->
 <div class="modal fade" id="loanRequestModal" tabindex="-1" role="dialog" aria-hidden="true">

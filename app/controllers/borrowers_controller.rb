@@ -18,7 +18,7 @@ class BorrowersController < ApplicationController
   end
 
   def show
-    @loan_requests = LoanRequest.where(user_id: params[:id])
+    @loan_requests = LoanRequest.where(user_id: params[:id]).paginate(page: params[:page], per_page: 6)
   end
 
   private
