@@ -134,8 +134,8 @@ module LoadScript
       session.fill_in("Title", with: new_loan_request_name)
       session.fill_in("Description", with: new_loan_request_description)
       session.fill_in("Amount", with: 50)
-      session.fill_in("loan_request_requested_by_date", with: Time.now.strftime("%m/%d/%Y"))
-      session.fill_in("loan_reqeust_repayment_begin_date", with: 30.days.from_now.strftime("%m/%d/%Y"))
+      session.fill_in("Requested by date", with: Time.now.strftime("%m/%d/%Y"))
+      session.fill_in("Repayment begin date", with: 30.days.from_now.strftime("%m/%d/%Y"))
       session.select(categories[0], from: "loan_request_category")
       session.click_on("Submit")
     end
