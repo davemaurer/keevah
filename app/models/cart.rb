@@ -11,7 +11,7 @@ class Cart
   end
 
   def cart_items_and_amount
-    items = LoanRequest.find(cart_items.keys)
+    items = LoanRequest.includes(:user).find(cart_items.keys)
     items.zip(cart_items.values).to_h
   end
 
