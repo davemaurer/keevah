@@ -9,6 +9,7 @@ gem "jquery-rails"
 gem "turbolinks"
 gem "jbuilder",     "~> 2.0"
 gem "jquery-turbolinks"
+gem "sdoc", "~> 0.4.0", group: :doc
 gem "bcrypt",       "~> 3.1.7"
 gem "paperclip"
 gem "bootstrap_form"
@@ -25,7 +26,6 @@ gem "newrelic_rpm"
 gem "will_paginate",  "~> 3.0.6"
 gem "will_paginate-bootstrap"
 gem "rails_12factor",   group: :production
-gem "sdoc", "~> 0.4.0", group: :doc
 gem "pry-rails"
 gem "capybara"
 gem "poltergeist"
