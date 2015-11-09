@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'errors/file_not_found'
+
+  get 'errors/unprocessable'
+
+  get 'errors/internal_server_error'
+
   root "home#index"
 
   get "/browse", to: "loan_requests#index"
@@ -30,5 +36,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  get "*path", to: "home#not_found"
+  match "/404", to: "errors#file_not_found", via: :all
+  match "/500", to: "errors#internal_server_error", via: :all
+  match "/422", to: "errors#unprocessable", via: :all
 end
