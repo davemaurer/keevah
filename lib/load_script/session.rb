@@ -1,9 +1,7 @@
-unless Rails.env.production?
-  require "capybara"
-  require "capybara/poltergeist"
-end
-
+require "capybara"
+require "capybara/poltergeist"
 require "logger"
+require "pry"
 require "faker"
 require "active_support"
 require "active_support/core_ext"
