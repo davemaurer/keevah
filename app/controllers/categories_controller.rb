@@ -1,9 +1,9 @@
 class CategoriesController < ApplicationController
   def index
-    @category = Category.all
+    @category = Category.includes(:loan_requests).all
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.includes(:loan_requests).find(params[:id])
   end
 end

@@ -141,7 +141,7 @@ module LoadScript
     def lender_makes_loan
       log_out
       sign_up_as_lender
-      session.visit "#{host}/loan_requests/#{rand(500)}"
+      session.visit "#{host}/loan_requests/#{rand(200)}"
       session.click_on("Contribute $25")
       session.click_on("Basket")
       session.click_on("Transfer Funds")
@@ -165,7 +165,9 @@ module LoadScript
 
     def browse_loan_request_pages
       log_out
-      session.visit "#{host}/browse?page=#{rand(200)}"
+      10.times do
+        session.visit "#{host}/browse?page=#{rand(200)}"
+      end
     end
 
     def categories
