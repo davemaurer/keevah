@@ -18,14 +18,15 @@ module LoadScript
                :sign_up_as_borrower,
                :browse_categories,
                :browse_categories_pages,
-               :new_loan_request
+               :new_loan_request,
+               :lender_makes_loan
               ]
 
     def self.run(host)
       ACTIONS.each do |action|
         threads = []
         benchmarked_times = []
-        6.times do
+        4.times do
           threads << Thread.new do
             difference = Benchmark.realtime do
               session = new(action)
@@ -125,6 +126,7 @@ module LoadScript
     end
 
     def new_loan_request
+      log_out
       sign_up_as_borrower
       session.click_on("Create Loan Request")
       session.fill_in("Title", with: new_loan_request_name)
@@ -136,20 +138,33 @@ module LoadScript
       session.click_on("Submit")
     end
 
+    def lender_makes_loan
+      log_out
+      sign_up_as_lender
+      session.visit "#{host}/loan_requests/#{rand(500)}"
+      session.click_on("Contribute $25")
+      session.click_on("Basket")
+      session.click_on("Transfer Funds")
+    end
+
     def browse_loan_requests
+      log_out
       session.visit "#{host}/browse"
       session.all(".lr-about").sample.click
     end
 
     def browse_categories
+      log_out
       session.visit "#{host}/browse?category=#{categories.sample}"
     end
 
     def browse_categories_pages
+      log_out
       session.visit "#{host}/browse?category=#{categories.sample}&page=#{rand(200)}"
     end
 
     def browse_loan_request_pages
+      log_out
       session.visit "#{host}/browse?page=#{rand(200)}"
     end
 
