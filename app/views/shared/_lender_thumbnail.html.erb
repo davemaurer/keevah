@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <% @loan_requests.each do |loan_request| %>
+      <% cache loan_request do %>
       <div class="col-sm-6 col-md-4 col-lg-4 loan-request">
       <div class="thumbnail">
         <%= image_tag loan_request.image_url %>
@@ -22,6 +23,7 @@
         </div>
       </div>
     </div>
+    <% end %>
   <% end %>
   </div>
 </div>
