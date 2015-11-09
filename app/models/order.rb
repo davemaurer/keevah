@@ -22,8 +22,11 @@ class Order < ActiveRecord::Base
   end
 
   def cart_item_and_quantity
-    items = LoanRequest.includes(:user).find(cart_items.keys)
-    items.zip(cart_items.values).to_h
+    items = cart_items.keys
+    quantity = cart_items.values
+    loan_requests = LoanRequest.find(items)
+    loan_requests.zip(quantity).to_h
+
   end
 
   def find_loan_requests
