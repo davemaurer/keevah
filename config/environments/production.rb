@@ -5,7 +5,7 @@ Rails.application.configure do
   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
   config.assets.compile = true
 
-
+  config.cache_store = :dalli_store
   config.cache_classes = true
 
   config.eager_load = true

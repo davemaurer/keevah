@@ -29,6 +29,7 @@ gem "rails_12factor",   group: :production
 gem "pry-rails"
 gem "capybara"
 gem "poltergeist"
+gem "dalli"
 
 group :development, :test do
   gem "awesome_print"

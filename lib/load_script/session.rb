@@ -51,7 +51,7 @@ module LoadScript
 
     attr_reader :host
 
-    def initialize(action, host: "http://localhost:3000")
+    def initialize(action, host: "http://scale-up-time.herokuapp.com")
       @action = action
       @host = host
     end
