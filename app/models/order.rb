@@ -22,9 +22,8 @@ class Order < ActiveRecord::Base
   end
 
   def cart_item_and_quantity
-    loan_requests = Hash.new
-    cart_items.select { |loan_id, amount| loan_requests[LoanRequest.find(loan_id)] = amount }
-    loan_requests
+    items = LoanRequest.includes(:user).find(cart_items.keys)
+    items.zip(cart_items.values).to_h
   end
 
   def find_loan_requests
