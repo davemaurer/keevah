@@ -81,6 +81,6 @@ class LoanRequest < ActiveRecord::Base
   end
 
   def related_projects
-    categories.first.loan_requests.limit(4)
+    Category.find_by(title: categories.first.title).loan_requests.take(4)
   end
 end
