@@ -27,7 +27,7 @@ module LoadScript
       ACTIONS.each do |action|
         threads = []
         benchmarked_times = []
-        4.times do
+        6.times do
           threads << Thread.new do
             difference = Benchmark.realtime do
               session = new(action)
@@ -119,13 +119,11 @@ module LoadScript
       log_out
       session.find("#sign-up-dropdown").click
       session.click_on("Sign Up As Borrower")
-      # session.within("#borrowerSignUpModal") do
       session.fill_in("Name", with: name)
       session.fill_in("Email", with: new_user_email(name))
       session.fill_in("Password", with: "password")
       session.fill_in("Confirm Password", with: "password")
       session.click_on("Create Account")
-      # end
     end
 
     def new_loan_request

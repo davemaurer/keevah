@@ -26,16 +26,16 @@ gem "will_paginate",  "~> 3.0.6"
 gem "will_paginate-bootstrap"
 gem "rails_12factor",   group: :production
 gem "sdoc", "~> 0.4.0", group: :doc
+gem "pry-rails"
+gem "capybara"
+gem "poltergeist"
 
 group :development, :test do
-  gem "pry-rails"
   gem "awesome_print"
   gem "web-console", "~> 2.0"
   gem "rspec-rails"
-  gem "capybara"
   gem "launchy"
   gem "database_cleaner"
-  gem "poltergeist"
 end
 
 group :development do
